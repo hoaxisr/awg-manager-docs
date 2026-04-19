@@ -34,7 +34,7 @@ toc: false
 
 {{< cards >}}
   {{< card link="guide/tunnels/" title="Управление туннелями" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, расширенные AWG-параметры. Два режима backend: NativeWG (интеграция с Keenetic OS) и Kernel (через Entware)." >}}
-  {{< card link="guide/dns-routing/" title="DNS-маршрутизация" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов для популярных сервисов — YouTube, Telegram, Discord, Netflix и другие." >}}
+  {{< card link="guide/dns-routing/" title="DNS-маршрутизация" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов для популярных сервисов — Vkontakte, Rutube, Ozon, Kinopoisk и другие." >}}
   {{< card link="guide/ip-routing/" title="Маршруты по IP" subtitle="CIDR-правила без зависимости от DNS. Работает на OS 4.x и 5.x. Импорт из Windows .bat-скриптов. Kill Switch при падении туннеля." >}}
   {{< card link="guide/hr-neo/" title="HydraRoute Neo" subtitle="Альтернативный движок маршрутизации. Geosite/geoip-теги, готовые списки по странам и сервисам, гибкая привязка к политикам Keenetic." >}}
   {{< card link="guide/monitoring/" title="Мониторинг туннелей" subtitle="Автоматическая проверка связности (ICMP, TCP, TLS, HTTP) и авто-перезапуск при падении. Подробный журнал проверок." >}}
