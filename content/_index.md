@@ -5,7 +5,8 @@ toc: false
 
 {{< hextra/hero-badge >}}
 <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
-Свежий релиз — [v2.7.11](https://github.com/hoaxisr/awg-manager/releases)
+Свежий релиз — [v2.7.8](https://github.com/hoaxisr/awg-manager/releases)
+Dev версия - [v2.7.419](Большая часть документации описывает эту версию)
 {{< /hextra/hero-badge >}}
 
 <div class="hx-mt-6 hx-mb-6">
@@ -70,3 +71,4 @@ wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/main/scripts/ins
 - **Репозиторий пакетов opkg:** [repo.hoaxisr.ru](http://repo.hoaxisr.ru)
 - **Changelog:** [релизы на GitHub](https://github.com/hoaxisr/awg-manager/releases)
 - **Issue / фичреквесты:** [GitHub Issues](https://github.com/hoaxisr/awg-manager/issues)
+- **TG Канал Общения** [Telegram](https://t.me/awgmanager)
