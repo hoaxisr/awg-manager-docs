@@ -1,0 +1,47 @@
+baseURL = "https://awgm.hoaxisr.ru/"
+languageCode = "ru"
+title = "awg-manager"
+theme = "hextra"
+
+defaultContentLanguage = "ru"
+
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = false
+
+disableKinds = ["taxonomy", "term"]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[languages.ru]
+  languageName = "Русский"
+  weight = 1
+
+  [[languages.ru.menu.main]]
+    name = "Документация"
+    pageRef = "/install"
+    weight = 1
+
+  [[languages.ru.menu.main]]
+    name = "GitHub"
+    url = "https://github.com/hoaxisr/awg-manager"
+    weight = 99
+    [languages.ru.menu.main.params]
+      icon = "github"
+
+[params]
+  description = "Графический интерфейс для управления AmneziaWG-туннелями на роутерах Keenetic"
+  navbar.displayTitle = true
+  navbar.displayLogo = false
+  theme.default = "system"
+  theme.displayToggle = true
+  search.enable = true
+  search.type = "flexsearch"
+  footer.enable = true
+  footer.displayCopyright = false
+  footer.displayPoweredBy = false
+  editURL.enable = false
