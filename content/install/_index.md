@@ -24,7 +24,7 @@ awg-manager устанавливается на роутер Keenetic через
 
 USB-накопитель должен быть отформатирован в **ext4**. На Windows — через [Paragon Partition Manager](https://www.paragon.ru/). На macOS/Linux — стандартные утилиты.
 
-Для моделей со встроенной памятью (`storage:`) флешка не нужна — Entware установится во внутреннее хранилище.
+Для cтарших моделей с достаточным объемом встроенной памяти (`storage:`) флешка можно не использовать — Entware установится во внутреннее хранилище. **Установка** на Entware на флеш-накопитель необходима также в случае использования Sing-box (VLESS/HY2/Naive) типов соединений. 
 
 > Подробности по подготовке накопителя — [официальная справка Keenetic](https://help.keenetic.com/hc/ru/articles/360021214160).
 
@@ -39,7 +39,7 @@ USB-накопитель должен быть отформатирован в *
 
 ### 1.4. Установка через CLI
 
-Откройте CLI-консоль роутера: `http://192.168.1.1/a`. Введите `opkg disk`, нажмите `Tab` — выберите имя накопителя из подсказки. Затем укажите URL установщика под вашу архитектуру:
+Откройте WebCLI-консоль роутера: `http://192.168.1.1/a`. Введите `opkg disk`, нажмите `Tab` — выберите имя накопителя из подсказки. Затем укажите URL установщика под вашу архитектуру:
 
 ```bash
 # Mipsel (MT7628 / MT7621)
@@ -73,7 +73,7 @@ Opkg::Manager: /opt/etc/init.d/doinstall: [5/5] "Entware" installed!
 
 Данные по умолчанию:
 
-- **IP**: `192.168.1.1`
+- **IP**: `192.168.1.1` (если вы его меняли)
 - **Порт**: `222` (если установлен компонент Keenetic SSH) или `22` (если Entware поднял свой OpenSSH)
 - **Логин**: `root`
 - **Пароль**: `keenetic`
@@ -85,10 +85,10 @@ Opkg::Manager: /opt/etc/init.d/doinstall: [5/5] "Entware" installed!
 passwd
 ```
 
-Стандартный пароль `keenetic` известен всем — оставлять его на доступной из интернета машине опасно.
+Стандартный пароль `keenetic` известен всем — оставлять его может быть не безопасно.
 {{< /callout >}}
 
-Для Windows — [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) или WSL. Для Linux/macOS — `ssh root@192.168.1.1 -p 222`.
+Для Windows — [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) или PowerShell. Для Linux/macOS — `ssh root@192.168.1.1 -p 222`.
 
 ## Шаг 3 — установить awg-manager
 
@@ -168,7 +168,7 @@ opkg install --force-downgrade http://repo.hoaxisr.ru/mipsel-k3.4/awg-manager_2.
 opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_2.3.11_mips-3.4-kn.ipk
 ```
 
-Замените `2.3.11` на нужную версию. Полный список релизов — на [GitHub](https://github.com/hoaxisr/awg-manager/releases).
+Замените `2.3.11` на нужную версию. Полный список релизов — в [Репо проекта](https://repo.hoaxisr.ru).
 
 {{< callout type="warning" >}}
 При переходе между версиями может потребоваться **пересоздать туннели** (загрузить конфиги заново). По старым версиям поддержка не осуществляется.
