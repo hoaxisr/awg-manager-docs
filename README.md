@@ -23,6 +23,17 @@ make dev    # http://localhost:1313, авто-перезагрузка
 git submodule update --init --recursive
 ```
 
+## Windows подготовка
+
+```bash
+wsl
+sudo apt update && sudo apt install snapd
+sudo snap install hugo
+exit
+wsl
+hugo -v
+```
+
 ## Сборка
 
 ```bash
