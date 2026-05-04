@@ -113,6 +113,7 @@ wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/main/scripts/ins
 ARCH=$(opkg print-architecture | grep '_kn' | awk '{print $2}' | sed 's/_kn.*//' | sed 's/-\([0-9]\)/-k\1/')
 
 # 2. Добавить репозиторий
+mkdir -p /opt/etc/opkg
 echo "src/gz hoaxisr http://repo.hoaxisr.ru/${ARCH}" > /opt/etc/opkg/awg_manager.conf
 
 # 3. Установить
