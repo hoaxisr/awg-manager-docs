@@ -178,13 +178,13 @@ opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_2.3.
 ## Полное удаление
 
 ```bash
-opkg remove awgm-alpha awg-manager && \
+opkg remove awg-manager && \
 rm -f /opt/etc/opkg/awg_manager.conf && \
 rm -rf /opt/etc/awg-manager /opt/var/lib/awg-manager /opt/var/log/awg-manager && \
 opkg update
 ```
 
-Удалит пакет (основной и alpha), файл репозитория, все настройки, данные и логи. Если хотите сохранить настройки для переустановки — уберите `rm -rf /opt/etc/awg-manager` из команды.
+Удалит пакет, файл репозитория, все настройки, данные и логи. Если хотите сохранить настройки для переустановки — уберите `rm -rf /opt/etc/awg-manager` из команды.
 
 ## Проблемы при установке
 

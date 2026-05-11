@@ -39,10 +39,6 @@ weight: 4
 Kill Switch недоступен для туннелей, работающих в режиме **Kernel на Keenetic OS 4.x** — сам режим удаляет маршруты при падении, поэтому `reject` не сработает.
 {{< /callout >}}
 
-{{< callout type="info" >}}
-FACT-TO-VERIFY: проверить актуальность ограничения Kill Switch для Kernel-туннелей на Keenetic OS 4.x — продолжает ли действовать после последних правок lifecycle/cleanup, или поведение изменилось?
-{{< /callout >}}
-
 ![Создание IP-маршрута](/img/guide/ip-routing/new-rule.png)
 
 ## Формат подсетей
