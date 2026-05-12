@@ -5,7 +5,7 @@ toc: false
 
 {{< hextra/hero-badge >}}
 <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
-Свежий релиз — [v2.9.16.9]
+Свежий релиз — [v2.10.0]
 {{< /hextra/hero-badge >}}
 
 <div class="hx-mt-6 hx-mb-6">
