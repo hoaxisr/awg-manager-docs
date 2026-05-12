@@ -1,6 +1,8 @@
 ---
 title: Руководство
 weight: 3
+cascade:
+  type: docs
 ---
 
 Подробные разделы по каждой функции awg-manager.
