@@ -144,7 +144,7 @@ opkg install awg-manager
 Повторный запуск установщика обновит до последней версии:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/main/scripts/install.sh | sh
+wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/master/scripts/install.sh | sh
 ```
 
 Или вручную:

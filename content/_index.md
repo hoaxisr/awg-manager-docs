@@ -51,7 +51,7 @@ toc: false
 # На роутере через SSH:
 opkg update
 opkg install wget-ssl ca-bundle curl
-wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/main/scripts/install.sh | sh
+wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/master/scripts/install.sh | sh
 ```
 
 Установщик определит архитектуру, добавит репозиторий, установит пакет и выведет URL веб-интерфейса.
