@@ -97,7 +97,7 @@ passwd
 ```bash
 opkg update
 opkg install wget-ssl ca-bundle curl
-wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/master/scripts/install.sh | sh
+wget -qO- http://repo.hoaxisr.ru/install.sh | sh
 ```
 
 Установщик определит архитектуру, добавит репозиторий, скачает и установит пакет, запустит сервис. В последней строке выведется URL веб-интерфейса.
@@ -144,7 +144,7 @@ opkg install awg-manager
 Повторный запуск установщика обновит до последней версии:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/hoaxisr/awg-manager/master/scripts/install.sh | sh
+wget -qO- http://repo.hoaxisr.ru/install.sh | sh
 ```
 
 Или вручную:
