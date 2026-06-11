@@ -17,7 +17,7 @@ AmneziaWG — форк WireGuard с добавлением параметров 
 
 ### Поддерживает ли awg-manager Sing-box?
 
-Да. Раздел [Sing-box](../guide/singbox/) описывает работу с туннелями (VLESS / Hysteria2 / NaiveProxy), подписками и движком маршрутизации Sing-box Router. Быстрый пример — [Sing-box Router — пример настройки](../guide/singbox/router-quickstart/).
+Да. Раздел [Sing-box](../guide/singbox/) описывает работу с туннелями (VLESS / Trojan / Shadowsocks / Hysteria2 / NaiveProxy / Mieru), подписками и движком маршрутизации Sing-box Router. Быстрый пример — [Sing-box Router — пример настройки](../guide/singbox/router-quickstart/).
 
 ### awg-manager работает на OpenWrt / OPNsense / Linux?
 
@@ -46,7 +46,7 @@ AmneziaWG — форк WireGuard с добавлением параметров 
 Архитектурное ограничения имеется - kernel туннелей (opkgtun интерфейс) на OS v5.0.x можно создать до 7 штук и еще 7 штук nativewg туннелей.
 Для версии OS Keenetic 4.х можно создавать до 7 штук nativewg туннелей и неограниченное число kernel туннелей.
 
-Sing-box-туннели (VLESS / Hysteria2 / NaiveProxy) живут как outbound'ы внутри одного процесса sing-box — их количество ограничено только системными ресурсами роутера, а не лимитом awg-manager.
+Sing-box-туннели (VLESS / Trojan / Shadowsocks / Hysteria2 / NaiveProxy / Mieru) живут как outbound'ы внутри одного процесса sing-box — их количество ограничено только системными ресурсами роутера, а не лимитом awg-manager.
 
 ## Обфускация и ключи
 

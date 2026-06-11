@@ -5,7 +5,7 @@ toc: false
 
 {{< hextra/hero-badge >}}
 <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
-Свежий релиз — [v2.12.0]
+Свежий релиз — [v2.12.3]
 {{< /hextra/hero-badge >}}
 
 <div class="hx-mt-6 hx-mb-6">
@@ -34,7 +34,7 @@ toc: false
 
 {{< cards >}}
   {{< card link="guide/tunnels/" title="Управление туннелями" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, расширенные AWG-параметры. Два режима backend: NativeWG (интеграция с Keenetic OS) и Kernel (через Entware)." >}}
-  {{< card link="guide/singbox/" title="Sing-box" subtitle="Поддержка протоколов VLESS/Reality, Hysteria2, NaiveProxy через отдельный движок: туннели, подписки и собственная маршрутизация (Sing-box Router)." >}}
+  {{< card link="guide/singbox/" title="Sing-box" subtitle="Поддержка протоколов VLESS/Reality, Trojan, Shadowsocks, Hysteria2, NaiveProxy, Mieru через отдельный движок: туннели, подписки и собственная маршрутизация (Sing-box Router)." >}}
   {{< card link="guide/dns-routing/" title="DNS-маршрутизация" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов для популярных сервисов — Vkontakte, Rutube, Ozon, Kinopoisk и другие." >}}
   {{< card link="guide/ip-routing/" title="Маршруты по IP" subtitle="CIDR-правила без зависимости от DNS. Работает на OS 4.x и 5.x. Импорт из Windows .bat-скриптов. Kill Switch при падении туннеля." >}}
   {{< card link="guide/hr-neo/" title="HydraRoute Neo" subtitle="Альтернативный движок маршрутизации. Geosite/geoip-теги, готовые списки по странам и сервисам, гибкая привязка к политикам Keenetic." >}}
