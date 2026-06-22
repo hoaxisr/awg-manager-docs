@@ -10,7 +10,7 @@ toc: false
 
 <div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
-Веб-интерфейс для AmneziaWG на Keenetic
+Веб-интерфейс для AmneziaWG и различных прокси-протоколов на роутерах Keenetic/Netcraze
 {{< /hextra/hero-headline >}}
 </div>
 
@@ -33,14 +33,14 @@ toc: false
 ## Возможности
 
 {{< cards >}}
-  {{< card link="guide/tunnels/" title="Управление туннелями" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, расширенные AWG-параметры. Два режима backend: NativeWG (интеграция с Keenetic OS) и Kernel (через Entware)." >}}
-  {{< card link="guide/singbox/" title="Sing-box" subtitle="Поддержка протоколов VLESS/Reality, Trojan, Shadowsocks, Hysteria2, NaiveProxy, Mieru через отдельный движок: туннели, подписки и собственная маршрутизация (Sing-box Router)." >}}
-  {{< card link="guide/dns-routing/" title="DNS-маршрутизация" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов для популярных сервисов — Vkontakte, Rutube, Ozon, Kinopoisk и другие." >}}
+  {{< card link="guide/tunnels/" title="Управление туннелями" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, AWG1.0/1.5/2.0. Совместимость с Keenetic OS 4.x и 5.x." >}}
+  {{< card link="guide/singbox/" title="Sing-box" subtitle="Поддержка протоколов VLESS, Hysteria2, NaiveProxy, Mieru: прокси, подписки и маршрутизация через Sing-box." >}}
+  {{< card link="guide/dns-routing/" title="DNS-маршрутизация" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов для недоступных сервисов — Vkontakte, Rutube." >}}
   {{< card link="guide/ip-routing/" title="Маршруты по IP" subtitle="CIDR-правила без зависимости от DNS. Работает на OS 4.x и 5.x. Импорт из Windows .bat-скриптов. Kill Switch при падении туннеля." >}}
-  {{< card link="guide/hr-neo/" title="HydraRoute Neo" subtitle="Альтернативный движок маршрутизации. Geosite/geoip-теги, готовые списки по странам и сервисам, гибкая привязка к политикам Keenetic." >}}
-  {{< card link="guide/monitoring/" title="Мониторинг туннелей" subtitle="Матричный вид связности (ICMP, TCP, TLS, HTTP) с авто-перезапуском при падении и детализацией по каждой паре цель × туннель." >}}
-  {{< card link="guide/clientvpn/" title="VPN для устройств" subtitle="Привязка конкретного устройства локальной сети к туннелю через source-based routing. Kill Switch или обход VPN при падении." >}}
-  {{< card link="guide/settings/#уровни-использования" title="Уровни использования" subtitle="Три режима — Базовый, Расширенный, Продвинутый — управляют тем, какие разделы интерфейса видны и доступны." >}}
+  {{< card link="guide/hr-neo/" title="HydraRoute Neo" subtitle="Альтернативный движок маршрутизации. Geosite/geoip-теги, готовые списки по странам и сервисам" >}}
+  {{< card link="guide/monitoring/" title="Мониторинг туннелей" subtitle="Авто-перезапуск при падении и детализацией ping'a по каждой паре цель × туннель." >}}
+  {{< card link="guide/clientvpn/" title="VPN для устройств" subtitle="Привязка конкретного устройства локальной сети к туннелю через source-based routing." >}}
+  {{< card link="guide/settings/#уровни-использования" title="Уровни использования" subtitle="Три режима — Базовый, Расширенный, Продвинутый — возможность скрыть неиспользуемое" >}}
 {{< /cards >}}
 
 <div class="hx-mt-16"></div>
@@ -50,7 +50,7 @@ toc: false
 ```bash
 # На роутере через SSH:
 opkg update
-opkg install wget-ssl ca-bundle curl
+opkg upgrade
 wget -qO- http://repo.hoaxisr.ru/install.sh | sh
 ```
 
@@ -62,7 +62,7 @@ wget -qO- http://repo.hoaxisr.ru/install.sh | sh
 
 ## Поддерживаемые устройства
 
-Поддерживаются роутеры Keenetic с возможностью установки Entware из актуальной линейки.
+Поддерживаются роутеры Keenetic с возможностью установки Entware из актуальной линейки, включая "кинетикозаменители".
 
 <div class="hx-mt-16"></div>
 
@@ -71,5 +71,5 @@ wget -qO- http://repo.hoaxisr.ru/install.sh | sh
 - **Исходный код:** [github.com/hoaxisr/awg-manager](https://github.com/hoaxisr/awg-manager)
 - **Репозиторий пакетов opkg:** [repo.hoaxisr.ru](http://repo.hoaxisr.ru)
 - **Changelog:** [релизы на GitHub](https://github.com/hoaxisr/awg-manager/releases)
-- **Issue / фичреквесты:** [GitHub Issues](https://github.com/hoaxisr/awg-manager/issues)
+- **Баги / Запросы новых функций:** [GitHub Issues](https://github.com/hoaxisr/awg-manager/issues)
 - **TG Канал Общения** [Telegram](https://t.me/awgmanager)
