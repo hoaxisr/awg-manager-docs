@@ -10,7 +10,7 @@ toc: false
 
 <div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
-Веб-интерфейс для AmneziaWG и различных прокси-протоколов на роутерах Keenetic/Netcraze
+    Туннели и прокси через Web-UI на роутерах Keenetic/Netcraze
 {{< /hextra/hero-headline >}}
 </div>
 
