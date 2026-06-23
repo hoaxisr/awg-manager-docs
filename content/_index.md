@@ -10,8 +10,7 @@ toc: false
 
 <div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
-    Туннели и прокси 
-    на роутерах Keenetic
+Туннели и прокси. Просто.
 {{< /hextra/hero-headline >}}
 </div>
 
