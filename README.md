@@ -6,8 +6,12 @@
 
 ## Требования
 
-- Hugo **extended** (не обычный). На Arch: `sudo pacman -S hugo`. На Debian/Ubuntu: скачать `_extended_` deb с https://github.com/gohugoio/hugo/releases.
+- Hugo **extended**, версия **не ниже 0.134** (минимум темы Hextra; пакет из apt Ubuntu 24.04 — 0.123 — не подходит). На Arch: `sudo pacman -S hugo`. На Debian/Ubuntu: скачать `_extended_` deb с https://github.com/gohugoio/hugo/releases.
 - Git (для submodule темы).
+
+## Деплой
+
+Сайт автоматически собирается и публикуется на GitHub Pages при пуше в `main` (workflow `.github/workflows/hugo.yml`). Превью: https://hoaxisr.github.io/awg-manager-docs/
 
 ## Локальная разработка
 
