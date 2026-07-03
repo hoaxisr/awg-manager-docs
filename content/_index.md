@@ -38,7 +38,7 @@ toc: false
   {{< card link="guide/dns-routing/" title="DNS-маршрутизация" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов для недоступных сервисов — Vkontakte, Rutube." >}}
   {{< card link="guide/ip-routing/" title="Маршруты по IP" subtitle="CIDR-правила без зависимости от DNS. Работает на OS 4.x и 5.x. Импорт из Windows .bat-скриптов. Kill Switch при падении туннеля." >}}
   {{< card link="guide/hr-neo/" title="HydraRoute Neo" subtitle="Альтернативный движок маршрутизации. Geosite/geoip-теги, готовые списки по странам и сервисам" >}}
-  {{< card link="guide/monitoring/" title="Мониторинг туннелей" subtitle="Авто-перезапуск при падении и детализацией ping'a по каждой паре цель × туннель." >}}
+  {{< card link="guide/monitoring/" title="Мониторинг туннелей" subtitle="Карточки-watchdog с метриками проверок и авто-перезапуск туннеля при потере связности." >}}
   {{< card link="guide/clientvpn/" title="VPN для устройств" subtitle="Привязка конкретного устройства локальной сети к туннелю через source-based routing." >}}
   {{< card link="guide/settings/#уровни-использования" title="Уровни использования" subtitle="Три режима — Базовый, Расширенный, Продвинутый — возможность скрыть неиспользуемое" >}}
 {{< /cards >}}

@@ -14,5 +14,5 @@ Sing-box не заменяет AmneziaWG, а добавляет поддержк
 {{< cards >}}
   {{< card link="tunnels/" title="Sing-box туннели" subtitle="Импорт и управление туннелями VLESS/Reality, Trojan, Shadowsocks, Hysteria2, NaiveProxy и Mieru." >}}
   {{< card link="subscriptions/" title="Sing-box подписки" subtitle="Подписка на список серверов — мастер скачивает каталог и создаёт selector-туннель." >}}
-  {{< card link="router/" title="Sing-box Router" subtitle="Маршрутизация устройств через sing-box на уровне netfilter/TPROXY; доступна только на уровне Продвинутый." >}}
+  {{< card link="router/" title="Sing-box Router" subtitle="Маршрутизация устройств через sing-box: режимы TProxy (netfilter) и Fake-IP (TUN); доступна только на уровне Продвинутый." >}}
 {{< /cards >}}
