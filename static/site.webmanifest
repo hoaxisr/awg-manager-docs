@@ -1,0 +1,12 @@
+{
+  "name": "awg-manager",
+  "short_name": "awg-manager",
+  "description": "Документация awg-manager — управление AmneziaWG-туннелями на роутерах Keenetic",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "display": "browser"
+}

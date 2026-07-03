@@ -98,16 +98,23 @@
       <div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'>
           {{- range $items.ByWeight }}
-            {{- $active := eq $pageURL .RelPermalink -}}
-            {{- $shouldOpen := or (.Params.sidebar.open) (.IsAncestor $page) $active | default true }}
-            {{- $linkTitle := partial "utils/title" . -}}
-            <li class="hx-flex hx-flex-col {{ if $shouldOpen }}open{{ end }}">
-              {{- template "sidebar-item-link" dict "context" . "active" $active "title" $linkTitle "link" .RelPermalink -}}
-              {{- if and $toc $active -}}
-                {{ template "sidebar-toc" dict "page" . }}
-              {{- end }}
-              {{ template "sidebar-tree" dict "context" . "page" $page "pageURL" $pageURL "level" (add $level 1) "toc" $toc }}
-            </li>
+            {{- if .Params.sidebar.separator -}}
+              {{/* Локальное дополнение: заголовки-разделители и на вложенных уровнях (в теме — только на верхнем) */}}
+              <li class="[word-break:break-word] hx-mt-4 hx-mb-1 hx-px-2 hx-py-1 hx-text-xs hx-font-semibold hx-uppercase hx-tracking-wide hx-text-gray-500 first:hx-mt-0 dark:hx-text-gray-400">
+                <span class="hx-cursor-default">{{ partial "utils/title" . }}</span>
+              </li>
+            {{- else -}}
+              {{- $active := eq $pageURL .RelPermalink -}}
+              {{- $shouldOpen := or (.Params.sidebar.open) (.IsAncestor $page) $active | default true }}
+              {{- $linkTitle := partial "utils/title" . -}}
+              <li class="hx-flex hx-flex-col {{ if $shouldOpen }}open{{ end }}">
+                {{- template "sidebar-item-link" dict "context" . "active" $active "title" $linkTitle "link" .RelPermalink -}}
+                {{- if and $toc $active -}}
+                  {{ template "sidebar-toc" dict "page" . }}
+                {{- end }}
+                {{ template "sidebar-tree" dict "context" . "page" $page "pageURL" $pageURL "level" (add $level 1) "toc" $toc }}
+              </li>
+            {{- end -}}
           {{- end -}}
         </ul>
       </div>

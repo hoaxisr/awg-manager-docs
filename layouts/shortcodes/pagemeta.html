@@ -1,0 +1,22 @@
+{{- /*
+Паспорт страницы: ряд чипов с ключевыми фактами раздела.
+Использование:
+{{< pagemeta level="Расширенный" os="5.x" ui="Маршрутизация → NDMS" since="2.15.0" requires="sing-box" >}}
+Все параметры необязательны.
+*/ -}}
+{{- $chips := slice -}}
+{{- with .Get "level" }}{{ $chips = $chips | append (dict "label" "Уровень" "value" .) }}{{ end -}}
+{{- with .Get "os" }}{{ $chips = $chips | append (dict "label" "Keenetic OS" "value" .) }}{{ end -}}
+{{- with .Get "ui" }}{{ $chips = $chips | append (dict "label" "Где в UI" "value" .) }}{{ end -}}
+{{- with .Get "requires" }}{{ $chips = $chips | append (dict "label" "Требует" "value" .) }}{{ end -}}
+{{- with .Get "since" }}{{ $chips = $chips | append (dict "label" "Появилось в" "value" .) }}{{ end -}}
+{{- if $chips }}
+<div class="not-prose hx-mt-3 hx-mb-5" style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+  {{- range $chips }}
+  <span class="hx-rounded-full hx-border hx-border-gray-200 dark:hx-border-neutral-700/60 hx-bg-gray-50 dark:hx-bg-neutral-900 hx-px-3 hx-py-1 hx-text-xs hx-leading-5" style="display:inline-flex;align-items:center;gap:0.375rem;">
+    <span class="hx-text-gray-500 dark:hx-text-gray-400">{{ .label }}:</span>
+    <span class="hx-font-medium hx-text-gray-800 dark:hx-text-gray-200">{{ .value }}</span>
+  </span>
+  {{- end }}
+</div>
+{{- end -}}

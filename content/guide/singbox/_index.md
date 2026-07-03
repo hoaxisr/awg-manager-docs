@@ -1,8 +1,9 @@
 ---
 title: Sing-box
-weight: 9
+weight: 21
 ---
 
+{{< pagemeta level="Расширенный" requires="Entware на USB-накопителе" >}}
 **Sing-box** — отдельный движок туннелей в awg-manager для протоколов, которые не поддерживает AmneziaWG: **VLESS/Reality**, **Trojan**, **Shadowsocks**, **Hysteria2**, **NaiveProxy**, **Mieru**. Работает параллельно с AmneziaWG-туннелями, устанавливается и обновляется из UI. Разделы Sing-box видны начиная с уровня использования **Расширенный** (см. [Настройки](../settings/#уровни-использования)).
 
 Sing-box не заменяет AmneziaWG, а добавляет поддержку других протоколов, расширяя возможности подключений.
