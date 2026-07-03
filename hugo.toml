@@ -22,9 +22,30 @@ disableKinds = ["taxonomy", "term"]
   weight = 1
 
   [[languages.ru.menu.main]]
-    name = "Документация"
+    name = "Установка"
     pageRef = "/install"
     weight = 1
+
+  [[languages.ru.menu.main]]
+    name = "Быстрый старт"
+    pageRef = "/quickstart"
+    weight = 2
+
+  [[languages.ru.menu.main]]
+    name = "Руководство"
+    pageRef = "/guide"
+    weight = 3
+
+  [[languages.ru.menu.main]]
+    name = "FAQ"
+    pageRef = "/faq"
+    weight = 4
+
+  [[languages.ru.menu.main]]
+    name = "Поиск"
+    weight = 50
+    [languages.ru.menu.main.params]
+      type = "search"
 
   [[languages.ru.menu.main]]
     name = "GitHub"
@@ -44,4 +65,5 @@ disableKinds = ["taxonomy", "term"]
   footer.enable = true
   footer.displayCopyright = false
   footer.displayPoweredBy = false
-  editURL.enable = false
+  editURL.enable = true
+  editURL.base = "https://github.com/hoaxisr/awg-manager-docs/edit/main/content"
