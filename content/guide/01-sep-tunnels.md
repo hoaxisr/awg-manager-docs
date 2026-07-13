@@ -3,7 +3,7 @@ title: Туннели
 weight: 1
 sidebar:
   separator: true
-_build:
+build:
   render: never
   list: local
 ---
