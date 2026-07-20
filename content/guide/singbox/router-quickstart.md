@@ -39,7 +39,7 @@ Sing-box Router обрабатывает либо устройства, прив
 - **Формат** — **Binary (.srs)**.
 - **URL к файлу** — `https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-rutube.srs`
 - **Интервал обновления** — оставьте `24h (рекомендуется)`.
-- **Скачивать через (download detour)** — оставьте `автоматически (direct)`. Если URL github у вашего провайдера заблокирован — выберите туннель.
+- **Скачивать через (download detour)** — оставьте `автоматически (direct)`. Если URL github у вашего провайдера заблокирован — выберите туннель. (Наборы, добавляемые из встроенного каталога, с 2.16.0 скачиваются через зеркало `repo.hoaxisr.ru/rulesets` — для них detour обычно не нужен.)
 
 ![Добавление rule_set RuTube](/img/guide/singbox/router-quickstart/rule-set-add.png)
 
