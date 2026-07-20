@@ -41,7 +41,7 @@ toc: false
   {{< card link="guide/dns-routing/" title="DNS-маршрутизация" icon="globe-alt" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов сервисов." >}}
   {{< card link="guide/ip-routing/" title="Маршруты по IP" icon="hashtag" subtitle="CIDR-правила без зависимости от DNS. Импорт из .bat. Kill Switch." >}}
   {{< card link="guide/hr-neo/" title="HydraRoute Neo" icon="sparkles" subtitle="Альтернативный движок: geosite/geoip-теги, готовые списки по странам и сервисам." >}}
-  {{< card link="guide/freeturn/" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для обхода блокировок: клиент и сервер, ссылки freeturn://, установка в один клик." >}}
+  {{< card link="guide/freeturn/" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для живущих далеко: возможность позвонить из Голладнии в село Светлая дача" >}}
   {{< card link="guide/monitoring/" title="Мониторинг туннелей" icon="chart-bar" subtitle="Карточки-watchdog с метриками проверок и авто-перезапуск при потере связности." >}}
   {{< card link="guide/clientvpn/" title="VPN для устройств" icon="device-mobile" subtitle="Привязка устройства локальной сети к туннелю через source-based routing." >}}
   {{< card link="guide/settings/#уровни-использования" title="Уровни использования" icon="adjustments" subtitle="Базовый, Расширенный, Продвинутый — скрывайте то, чем не пользуетесь." >}}
