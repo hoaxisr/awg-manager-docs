@@ -34,6 +34,7 @@ USB-накопитель должен быть отформатирован в *
 
 ### 1.3. Определите архитектуру процессора
 
+- **Mips**
 - **Mipsel** — чипы MT7628 / MT7621
 - **Aarch64** — чипы MT7622 / MT7981 / MT7988 (ARM)
 
@@ -42,9 +43,16 @@ USB-накопитель должен быть отформатирован в *
 Откройте WebCLI-консоль роутера: `http://192.168.1.1/a`. Введите `opkg disk`, нажмите `Tab` — выберите имя накопителя из подсказки. Затем укажите URL установщика под вашу архитектуру:
 
 ```bash
+# Mips
+opkg disk <накопитель> https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz
+```
+
+```bash
 # Mipsel (MT7628 / MT7621)
 opkg disk <накопитель> https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz
+```
 
+```bash
 # Aarch64 (MT7622 / MT7981 / MT7988)
 opkg disk <накопитель> https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
 ```
