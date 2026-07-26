@@ -76,7 +76,10 @@ opkg disk <накопитель> https://bin.entware.net/aarch64-k3.10/installer
 ```
 Opkg::Manager: /opt/etc/init.d/doinstall: [5/5] "Entware" installed!
 ```
-
+```
+#либо можно спустя несколько минут ввести команду и увидеть логи в терминале:
+show log | grep Opkg::Manager:
+``` 
 Установка занимает одну–две минуты.
 
 ## Шаг 2 — подключиться по SSH
