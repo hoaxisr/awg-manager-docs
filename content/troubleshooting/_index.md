@@ -14,6 +14,50 @@ weight: 5
 - Проверить интерфейс на котором сервис слушает запросы: `cat /opt/etc/awg-manager/settings.json`, поле `interface`
 - Проверить, что сервис запущен: `/opt/etc/init.d/S99awg-manager status`
 
+### Форматирование накопителя Entware
+
+Нужно, когда Entware не ставится, накопитель числится «занятым» или требуется начать с чистого листа.
+
+{{< callout type="warning" >}}
+Все данные на накопителе будут стёрты. Если на нём уже есть рабочий Entware — сначала [сделайте бэкап](#бэкап-entware).
+{{< /callout >}}
+
+Способ ниже работает **только со встроенной памятью роутера** (`storage:`). USB-флешку форматируйте на компьютере в ext4.
+
+1. Откройте WebCLI роутера: `http://192.168.1.1/a`
+2. Отключите все активные сессии Telnet/SSH — иначе накопитель останется занят
+3. Выполните команды по одной:
+
+```
+opkg no disk
+no system mount storage:
+erase storage:
+system mount storage:
+```
+
+После этого поставьте Entware заново — см. [Установка](../install/#шаг-1--установить-entware).
+
+### Бэкап Entware
+
+Полезно перед форматированием, сменой накопителя или рискованными экспериментами: сохраняет весь `/opt` одним архивом.
+
+**Через [KeenKit](https://github.com/spatiumstas/KeenKit)** (рекомендуется):
+
+```bash
+opkg update && opkg install curl && curl -L -s "https://raw.githubusercontent.com/spatiumstas/KeenKit/main/install.sh" > /tmp/install.sh && sh /tmp/install.sh
+```
+
+**Через tar:**
+
+```bash
+opkg install tar
+tar --exclude='backup-*.tar.gz' --exclude=var/run -czvf /opt/backup-$(date -I).tar.gz -C /opt .
+```
+
+Восстановление: положите архив в папку `install` на накопителе, в разделе [OPKG](http://my.keenetic.net/opkg) выберите этот носитель и дождитесь распаковки.
+
+Отдельно от Entware настройки самого awg-manager выгружаются через API — см. [Бэкап по расписанию](../api/#бэкап-по-расписанию).
+
 ## Туннели
 
 ### Статус `broken`

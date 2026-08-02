@@ -113,6 +113,51 @@ weight: 6
 | GET | `/system/all-interfaces` | Все сетевые интерфейсы роутера (через NDMS) | да |
 | GET | `/system/hydraroute-status` | Статус установки HydraRoute Neo | да |
 | POST | `/system/hydraroute-control` | Управление HydraRoute (start/stop/restart) | да |
+| GET | `/system/backup/export` | Скачать резервную копию каталога данных (`tar.gz`) | да |
+| POST | `/system/backup/import` | Восстановить каталог данных из архива (multipart) | да |
+
+### GET `/system/backup/export`
+
+Отдаёт весь каталог данных awg-manager (`/opt/etc/awg-manager`) одним `tar.gz`. Перед выгрузкой дочерние процессы (sing-box и прочие) останавливаются и поднимаются обратно после — архив получается согласованным, но на несколько секунд трафик через них прерывается.
+
+Тот же архив создаёт кнопка резервного копирования в **Настройках**. Восстановление — `POST /system/backup/import` с файлом в `multipart/form-data`; после импорта демон перезапускается.
+
+#### Бэкап по расписанию
+
+С API-ключом (генерируется в [Настройки → Расширенные](../guide/settings/#расширенные)) выгрузку удобно повесить на cron роутера:
+
+```bash
+cat << 'EOF' > /opt/bin/awg_backup.sh
+#!/bin/sh
+
+API_KEY="ваш ключ из Настроек"
+BACKUP_DIR="/opt/mnt/BACKUP_AWGM"
+DAYS_TO_KEEP=14
+# На слабом процессоре или медленном накопителе увеличьте до 60–90.
+CURL_TIMEOUT=45
+
+DATE=$(date +%Y-%m-%d-%H-%M-%S)
+FILE_PATH="$BACKUP_DIR/awg-manager-backup-$DATE.tar.gz"
+mkdir -p "$BACKUP_DIR"
+
+/opt/bin/curl -sS --max-time "$CURL_TIMEOUT" \
+  -H "Authorization: Bearer $API_KEY" \
+  "http://192.168.1.1:2222/api/system/backup/export" \
+  -o "$FILE_PATH" 2>/dev/null
+
+# Битый или недокачанный архив не должен вытеснить рабочие копии
+if /opt/bin/tar -tzf "$FILE_PATH" >/dev/null 2>&1; then
+    echo "[OK] $FILE_PATH ($(ls -lh "$FILE_PATH" | awk '{print $5}'))"
+    find "$BACKUP_DIR" -type f -name "awg-manager-backup-*.tar.gz" -mtime +$DAYS_TO_KEEP -delete
+else
+    echo "[ERROR] Архив $FILE_PATH повреждён или не докачан (увеличьте CURL_TIMEOUT)" >&2
+    exit 1
+fi
+EOF
+chmod +x /opt/bin/awg_backup.sh
+```
+
+Подставьте свой порт, путь до накопителя и ключ, проверьте запуском вручную и добавьте в `crontab`.
 
 ### GET `/system/info`
 Возвращает объект (пример):

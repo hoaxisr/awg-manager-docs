@@ -10,19 +10,21 @@ weight: 4
 
 - [AmneziaWG Architect](https://vadim-khristenko.github.io/AmneziaWG-Architect/) — конструктор обфускации
 - [Special Junk Packet List](https://voidwaifu.github.io/Special-Junk-Packet-List/) — коллекция junk-настроек для обхода разных типов DPI
+- [Amnezia Signature Generator](https://spatiumstas.github.io/junker/) — генератор сигнатур
 - [PayloadGen](https://sketchystan1.github.io/payloadGen/) — генератор payload'ов
 - [Mini QUIC Generator](https://sageptr.github.io/mini_quic_generator/) — QUIC-маскировка
+- [AmneziaWG Config Analyzer](https://pumbax.github.io/awg-analyzer/) — разбор готового конфига в браузере (тот же анализ встроен в awg-manager, см. [вкладку «Анализ конфига»](../guide/tunnels/#вкладка-анализ-конфига))
 
 ### Отличие AWG 1.0 / 1.5 / 2.0 / 3.0
 
 - **AWG 1.0** — базовая обфускация: junk-пакеты + padding + заголовки (`Jc`, `Jmin`, `Jmax`, `S1`–`S4`, `H1`–`H4`)
 - **AWG 1.5** — добавляет мимикрию под QUIC/DTLS/STUN/DNS через signature-пакеты (`I1`–`I5`)
 - **AWG 2.0** — рандомизирует заголовки (`H1`–`H4` задаются диапазонами, генерируются на каждом хендшейке)
-- **AWG 3.0** — добавляет новые возможности шифрования заголовков пакетов, рандомизирует базовые тайминги Wireguard (например, `HandshakeTimeout` и `KeepAliveInterval`)
+- **AWG 3.0** — шифрует заголовок WireGuard целиком (`HeaderProtectionKey`), добавляет паддинг полезной нагрузки и делает диапазонами базовые тайминги протокола, чтобы соединение не выдавало себя ритмом. Настраивается в awg-manager — см. [AmneziaWG 3.0](../guide/tunnels/#amneziawg-30)
 
 ### Как пустить **весь** трафик самого роутера через туннель?
 
-Воспользуйтесь iptables и ip rule в Entware. Более подробно — см. [Скрипт направления к Github](https://t.me/awgmanager/4211/60892)
+Через `ip rule` в хуке `netfilter.d` — трафик роутера помечается как `iif lo`. Готовый скрипт и разбор: [Трафик самого роутера через туннель](../guide/ip-routing/#трафик-самого-роутера-через-туннель).
 
 ## Мониторинг и диагностика
 
@@ -52,10 +54,42 @@ weight: 4
 
 - [wgtunnel](https://github.com/wgtunnel) — альтернативный WireGuard + AmneziaWG клиент для Android
 
+### Свой сервер AmneziaWG
+
+- [AwgToolza](https://t.me/awgToolza) — разворачивает AmneziaWG 2.0 на VPS одной командой: мимикрия под несколько протоколов, локальная генерация `I1`, бэкап
+- [docker-amneziawg](https://github.com/AYastrebov/docker-amneziawg) — образ с поддержкой AWG 3.0
+- [Официальная инструкция Amnezia для KeeneticOS](https://docs.amnezia.org/ru/documentation/instructions/keenetic-os-awg/)
+
 ### Диагностика / сетевые инструменты
 
 - [AntiScan для Keenetic](https://forum.keenetic.ru/topic/21009-antiscan-выявление-и-блокировка-подозрительных-ip/) — защита от сканов/ботов
 - [Punycode-конвертер](https://www.reg.ru/web-tools/punycode) — преобразование кириллических доменов (`.рф`, `.дети`) в ASCII-формат
+- [keenetic-info](https://github.com/pumbaX/keenetic-info) — модель, версия прошивки, процессор и память роутера одной командой
+- [KeenKit](https://github.com/spatiumstas/KeenKit) — бэкап и обслуживание Entware (см. [Бэкап Entware](../troubleshooting/#бэкап-entware))
+
+## Обслуживание роутера
+
+### Забыт пароль администратора Keenetic
+
+Он же используется для авторизации в awg-manager и во встроенном терминале. Если остался доступ по SSH:
+
+```bash
+ndmc -c user admin password plain НОВЫЙ_ПАРОЛЬ
+ndmc -c system configuration save
+```
+
+Слишком простые пароли Keenetic отклоняет.
+
+### Кончилось место в `/opt`
+
+Исполняемые файлы Entware сжимаются UPX:
+
+```bash
+opkg install upx
+find /opt/bin /opt/sbin /opt/usr/bin /opt/libexec -type f -executable -exec upx --lzma --best {} +
+```
+
+Сжатый бинарь распаковывается в память при каждом запуске — старт чуть медленнее, расход RAM чуть выше. После обновления пакета файл заменяется несжатым, и прогон придётся повторить. Перед массовым сжатием сделайте [бэкап Entware](../troubleshooting/#бэкап-entware).
 
 ## Обратная связь
 
