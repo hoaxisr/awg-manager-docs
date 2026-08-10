@@ -173,16 +173,18 @@ opkg upgrade awg-manager
 
 ```bash
 # Для aarch64:
-opkg install --force-downgrade http://repo.hoaxisr.ru/aarch64-k3.10/awg-manager_2.16.4_aarch64-3.10-kn.ipk
+opkg install --force-downgrade http://repo.hoaxisr.ru/aarch64-k3.10/awg-manager_ВЕРСИЯ_aarch64-3.10-kn.ipk
 
 # Для mipsel:
-opkg install --force-downgrade http://repo.hoaxisr.ru/mipsel-k3.4/awg-manager_2.16.4_mipsel-3.4-kn.ipk
+opkg install --force-downgrade http://repo.hoaxisr.ru/mipsel-k3.4/awg-manager_ВЕРСИЯ_mipsel-3.4-kn.ipk
 
 # Для mips:
-opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_2.16.4_mips-3.4-kn.ipk
+opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_ВЕРСИЯ_mips-3.4-kn.ipk
 ```
 
-Замените `2.16.4` на нужную версию. Полный список релизов — в [Репо проекта](https://repo.hoaxisr.ru).
+Подставьте номер версии вместо `ВЕРСИЯ` — например, `2.16.4`.
+
+В репозитории хранятся **последние 5 стабильных версий**. Какие именно доступны сейчас, видно прямо в каталоге своей архитектуры: [aarch64-k3.10](http://repo.hoaxisr.ru/aarch64-k3.10/), [mipsel-k3.4](http://repo.hoaxisr.ru/mipsel-k3.4/), [mips-k3.4](http://repo.hoaxisr.ru/mips-k3.4/). Более ранние версии — в [GitHub Releases](https://github.com/hoaxisr/awg-manager/releases).
 
 {{< callout type="warning" >}}
 При переходе между версиями может потребоваться **пересоздать туннели** (загрузить конфиги заново). По старым версиям поддержка не осуществляется.
