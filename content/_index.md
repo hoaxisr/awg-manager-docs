@@ -7,7 +7,7 @@ toc: false
 
 {{< hextra/hero-badge link="https://github.com/hoaxisr/awg-manager/releases/latest" >}}
 <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
-Свежий релиз — v2.17.2 →
+Свежий релиз — v2.17.3 →
 {{< /hextra/hero-badge >}}
 
 <div class="hx-mt-6 hx-mb-6">
