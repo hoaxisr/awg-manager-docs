@@ -187,11 +187,18 @@ opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_ВЕ
 ```bash
 opkg remove awg-manager && \
 rm -f /opt/etc/opkg/awg_manager.conf && \
-rm -rf /opt/etc/awg-manager /opt/var/lib/awg-manager /opt/var/log/awg-manager && \
+rm -rf /opt/etc/awg-manager && \
 opkg update
 ```
 
-Удалит пакет, файл репозитория, все настройки, данные и логи. Если хотите сохранить настройки для переустановки — уберите `rm -rf /opt/etc/awg-manager` из команды.
+Удалит пакет, файл репозитория, все настройки и данные. Если хотите сохранить настройки для переустановки — уберите `rm -rf /opt/etc/awg-manager` из команды.
+
+Всё остальное (хуки в `/opt/etc/ndm/netfilter.d`, каталоги в `/opt/var`, временные файлы в `/opt/tmp`) пакет снимает сам. Версии до 2.17.4 включительно этого не делали — после их удаления допишите:
+
+```bash
+rm -f /opt/etc/ndm/netfilter.d/*-awgm-*.sh /opt/tmp/awg-manager-*.log /opt/tmp/awg-manager_*.ipk && \
+rm -rf /opt/var/lock/awg-manager /opt/var/run/awg-manager
+```
 
 ## Проблемы при установке
 
