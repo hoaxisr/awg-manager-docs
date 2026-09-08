@@ -7,7 +7,7 @@ toc: false
 
 {{< hextra/hero-badge link="https://github.com/hoaxisr/awg-manager/releases/latest" >}}
 <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
-Свежий релиз — v2.17.4 →
+Свежий релиз — v2.18.0 →
 {{< /hextra/hero-badge >}}
 
 <div class="hx-mt-6 hx-mb-6">
@@ -35,8 +35,8 @@ toc: false
 ## Возможности
 
 {{< cards >}}
-  {{< card link="guide/tunnels/" title="Управление туннелями" icon="switch-horizontal" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, AWG 1.0/1.5/2.0/3.0. Keenetic OS 4.x и 5.x." >}}
-  {{< card link="guide/singbox/" title="Sing-box" icon="cube" subtitle="VLESS, Hysteria2, NaiveProxy, Mieru: прокси, подписки и маршрутизация." >}}
+  {{< card link="guide/tunnels/" title="Управление туннелями" icon="switch-horizontal" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, AWG 1.0-3.1, PhobosWG, ClusterM Obfuscator" >}}
+  {{< card link="guide/singbox/" title="Sing-box" icon="cube" subtitle="Vless, HY2, Naive, Mieru: прокси, подписки и маршрутизация." >}}
   {{< card link="guide/routing/" title="Выбор маршрутизации" icon="map" subtitle="Шесть механизмов — таблица и сценарии, которые помогут выбрать подходящий." >}}
   {{< card link="guide/dns-routing/" title="DNS-маршрутизация" icon="globe-alt" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов сервисов." >}}
   {{< card link="guide/ip-routing/" title="Маршруты по IP" icon="hashtag" subtitle="CIDR-правила без зависимости от DNS. Импорт из .bat. Kill Switch." >}}
