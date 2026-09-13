@@ -130,7 +130,6 @@ find /opt/bin /opt/sbin /opt/usr/bin /opt/libexec -type f -executable -exec upx 
 
 - [AmneziaWG Architect](https://vadim-khristenko.github.io/AmneziaWG-Architect/) — конструктор обфускации
 - [Special Junk Packet List](https://voidwaifu.github.io/Special-Junk-Packet-List/) — коллекция junk-настроек для обхода разных типов DPI
-- [Amnezia Signature Generator](https://spatiumstas.github.io/junker/) — генератор сигнатур
 - [PayloadGen](https://sketchystan1.github.io/payloadGen/) — генератор payload'ов
 - [Mini QUIC Generator](https://sageptr.github.io/mini_quic_generator/) — QUIC-маскировка
 - [AmneziaWG Config Analyzer](https://pumbax.github.io/awg-analyzer/) — разбор готового конфига в браузере (тот же анализ встроен в awg-manager, см. [вкладку «Анализ конфига»](../guide/tunnels/#вкладка-анализ-конфига))
