@@ -41,10 +41,10 @@ system mount storage:
 
 Полезно перед форматированием, сменой накопителя или рискованными экспериментами: сохраняет весь `/opt` одним архивом.
 
-**Через [KeenKit](https://github.com/spatiumstas/KeenKit)** (рекомендуется):
+**Через [FlashKeen](https://github.com/miha75vu-bit/Flashkeen)** (рекомендуется):
 
 ```bash
-opkg update && opkg install curl && curl -L -s "https://raw.githubusercontent.com/spatiumstas/KeenKit/main/install.sh" > /tmp/install.sh && sh /tmp/install.sh
+opkg update || true; opkg install curl || true; curl -fsSL https://raw.githubusercontent.com/miha75vu-bit/Flashkeen/main/install.sh | sh
 ```
 
 **Через tar:**

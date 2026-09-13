@@ -146,7 +146,7 @@ find /opt/bin /opt/sbin /opt/usr/bin /opt/libexec -type f -executable -exec upx 
 - [AntiScan для Keenetic](https://forum.keenetic.ru/topic/21009-antiscan-выявление-и-блокировка-подозрительных-ip/) — защита от сканов/ботов
 - [Punycode-конвертер](https://www.reg.ru/web-tools/punycode) — преобразование кириллических доменов (`.рф`, `.дети`) в ASCII-формат
 - [keenetic-info](https://github.com/pumbaX/keenetic-info) — модель, версия прошивки, процессор и память роутера одной командой
-- [KeenKit](https://github.com/spatiumstas/KeenKit) — бэкап и обслуживание Entware (см. [Бэкап Entware](../troubleshooting/#бэкап-entware))
+- [FlashKeen](https://github.com/miha75vu-bit/Flashkeen) — бэкап и обслуживание Entware (см. [Бэкап Entware](../troubleshooting/#бэкап-entware))
 
 ## Обратная связь
 
