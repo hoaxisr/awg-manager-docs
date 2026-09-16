@@ -1,5 +1,5 @@
 ---
-title: Sing-box Router — пример настройки
+title: Sing-box Router — пример настройки TProxy
 weight: 3
 ---
 
