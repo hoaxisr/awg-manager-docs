@@ -188,7 +188,8 @@ opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_ВЕ
 opkg remove awg-manager && \
 rm -f /opt/etc/opkg/awg_manager.conf && \
 rm -rf /opt/etc/awg-manager && \
-opkg update
+ndmc -c "no ip host awgm-dnscheck.test" && \
+ndmc -c "system configuration save"
 ```
 
 Удалит пакет, файл репозитория, все настройки и данные. Если хотите сохранить настройки для переустановки — уберите `rm -rf /opt/etc/awg-manager` из команды.
