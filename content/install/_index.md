@@ -45,7 +45,7 @@ USB-накопитель должен быть отформатирован в *
 Откройте WebCLI-консоль роутера: `http://192.168.1.1/a`. Введите `opkg disk`, нажмите `Tab` — выберите имя накопителя из подсказки. Затем укажите URL установщика под вашу архитектуру:
 
 ```bash
-# Mips
+# Mips (EN7526/EN7512)
 opkg disk <накопитель> https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz
 ```
 
