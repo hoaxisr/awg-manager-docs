@@ -189,12 +189,12 @@ opkg install --force-downgrade http://repo.hoaxisr.ru/mips-k3.4/awg-manager_ВЕ
 ```bash
 opkg remove awg-manager && \
 rm -f /opt/etc/opkg/awg_manager.conf && \
-rm -rf /opt/etc/awg-manager && \
+rm -rf /opt/etc/awg-manager /opt/etc/awg-manager.pre-restore-* && \
 ndmc -c "no ip host awgm-dnscheck.test" && \
 ndmc -c "system configuration save"
 ```
 
-Удалит пакет, файл репозитория, все настройки и данные. Если хотите сохранить настройки для переустановки — уберите `rm -rf /opt/etc/awg-manager` из команды.
+Удалит пакет, файл репозитория, все настройки и данные, включая копии `awg-manager.pre-restore-*`, которые оставляло восстановление из бэкапа в версиях до 2.19.10. Если хотите сохранить настройки для переустановки — уберите строку `rm -rf …` из команды.
 
 Всё остальное (хуки в `/opt/etc/ndm/netfilter.d`, каталоги в `/opt/var`, временные файлы в `/opt/tmp`) пакет снимает сам. Версии до 2.17.4 включительно этого не делали — после их удаления допишите:
 
