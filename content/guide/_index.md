@@ -12,7 +12,7 @@ cascade:
 {{< cards >}}
   {{< card link="tunnels" title="Управление туннелями" icon="switch-horizontal" subtitle="Создание, редактирование, параметры обфускации, маршрут по умолчанию." >}}
   {{< card link="monitoring" title="Мониторинг" icon="chart-bar" subtitle="Карточки-watchdog и автоматический перезапуск при потере соединения." >}}
-  {{< card link="servers" title="Серверы" icon="server" subtitle="Встроенный и собственные WireGuard-серверы роутера, клиенты, NAT-режимы." >}}
+  {{< card link="servers" title="Серверы" icon="server" subtitle="Свой WireGuard/AmneziaWG-сервер на роутере: создание, NAT и доступ, клиенты, обфускация, бэкап." >}}
   {{< card link="freeturn" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для обхода блокировок: клиент, сервер, ссылки freeturn://." >}}
 {{< /cards >}}
 
@@ -40,7 +40,7 @@ cascade:
 ## Прочее
 
 {{< cards >}}
-  {{< card link="diagnostics" title="Инструменты" icon="beaker" subtitle="Журнал, мониторинг, соединения, автоматические проверки, окружение." >}}
+  {{< card link="diagnostics" title="Инструменты" icon="beaker" subtitle="Журнал, соединения, проверки, окружение, анализ конфигов, DNS и системные утилиты." >}}
   {{< card link="settings" title="Настройки" icon="adjustments" subtitle="Уровни использования, обновление, журналы, интеграции." >}}
   {{< card link="terminal" title="Терминал" icon="terminal" subtitle="Командная строка роутера в браузере (ttyd)." >}}
 {{< /cards >}}

@@ -37,7 +37,7 @@ disableKinds = ["taxonomy", "term"]
     weight = 3
 
   [[languages.ru.menu.main]]
-    name = "FAQ"
+    name = "Вопросы и решения"
     pageRef = "/faq"
     weight = 4
 

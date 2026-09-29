@@ -3,6 +3,8 @@ title: awg-manager
 toc: false
 ---
 
+<div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
 <div class="hx-mt-6"></div>
 
 {{< hextra/hero-badge link="https://github.com/hoaxisr/awg-manager/releases/latest" >}}
@@ -18,7 +20,7 @@ toc: false
 
 <div class="hx-mb-12">
 {{< hextra/hero-subtitle >}}
-Настройка VPN через браузер вместо редактирования конфигов в SSH. Выборочная маршрутизация по доменам, IP и устройствам. Встроенная диагностика и автоперезапуск при потере связи.
+Настройка VPN через браузер вместо редактирования конфигов в SSH. Выборочная маршрутизация по доменам, IP и устройствам. Собственный WireGuard-сервер на роутере. Встроенная диагностика и автоперезапуск при потере связи.
 {{< /hextra/hero-subtitle >}}
 </div>
 
@@ -28,63 +30,36 @@ toc: false
 {{< hextra/hero-button text="Быстрый старт" link="quickstart" style="background: transparent; border: 1px solid currentColor; color: inherit;" >}}
 </div>
 
+</div>
+
 ![Главный экран awg-manager](/img/landing/hero.png)
 
 <div class="hx-mt-16"></div>
 
 ## Возможности
 
-{{< cards >}}
-  {{< card link="guide/tunnels/" title="Управление туннелями" icon="switch-horizontal" subtitle="Импорт .conf, vpn:// ссылок AmneziaVPN, AWG 1.0-3.1, PhobosWG, ClusterM Obfuscator" >}}
-  {{< card link="guide/singbox/" title="Sing-box" icon="cube" subtitle="Vless, HY2, Naive, Mieru: прокси, подписки и маршрутизация." >}}
-  {{< card link="guide/routing/" title="Выбор маршрутизации" icon="map" subtitle="Шесть механизмов — таблица и сценарии, которые помогут выбрать подходящий." >}}
-  {{< card link="guide/dns-routing/" title="DNS-маршрутизация" icon="globe-alt" subtitle="Правила по именам доменов через NDMS. Каталог готовых пресетов сервисов." >}}
-  {{< card link="guide/ip-routing/" title="Маршруты по IP" icon="hashtag" subtitle="CIDR-правила без зависимости от DNS. Импорт из .bat. Kill Switch." >}}
-  {{< card link="guide/hr-neo/" title="HydraRoute Neo" icon="sparkles" subtitle="Альтернативный движок: geosite/geoip-теги, готовые списки по странам и сервисам." >}}
-  {{< card link="guide/freeturn/" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для живущих далеко: возможность позвонить из Голладнии в село Светлая дача" >}}
-  {{< card link="guide/monitoring/" title="Мониторинг туннелей" icon="chart-bar" subtitle="Карточки-watchdog с метриками проверок и авто-перезапуск при потере связности." >}}
-  {{< card link="guide/clientvpn/" title="VPN для устройств" icon="device-mobile" subtitle="Привязка устройства локальной сети к туннелю через source-based routing." >}}
-  {{< card link="guide/settings/#уровни-использования" title="Уровни использования" icon="adjustments" subtitle="Базовый, Расширенный, Продвинутый — скрывайте то, чем не пользуетесь." >}}
+{{< cards cols="3" >}}
+  {{< card link="guide/tunnels/" title="AmneziaWG и WireGuard" icon="switch-horizontal" subtitle="Импорт .conf и vpn:// ссылок, AWG 1.0–3.1, PhobosWG, ClusterM Obfuscator." >}}
+  {{< card link="guide/singbox/" title="Sing-box" icon="cube" subtitle="VLESS, Hysteria2, NaiveProxy, Mieru и подписки провайдеров." >}}
+  {{< card link="guide/freeturn/" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для живущих далеко: возможность позвонить из Голландии в село Светлая дача" >}}
+  {{< card link="guide/routing/" title="Маршрутизация" icon="map" subtitle="По доменам, IP и устройствам: шесть механизмов и как выбрать нужный." >}}
+  {{< card link="guide/clientvpn/" title="VPN для устройств" icon="device-mobile" subtitle="Отдельное устройство сети целиком через выбранный туннель." >}}
+  {{< card link="guide/servers/" title="Серверы" icon="server" subtitle="Свой WireGuard/AmneziaWG-сервер на роутере, клиенты по QR." >}}
+  {{< card link="guide/monitoring/" title="Мониторинг" icon="chart-bar" subtitle="Проверки связности и автоперезапуск упавших туннелей." >}}
+  {{< card link="guide/diagnostics/" title="Инструменты" icon="beaker" subtitle="Журнал, живые соединения, проверки, анализатор конфигов." >}}
+  {{< card link="guide/diagnostics/system/" title="Система" icon="chip" subtitle="Файлы, службы, пакеты, порты и процессы роутера без SSH." >}}
 {{< /cards >}}
 
 <div class="hx-mt-16"></div>
 
-## Начать за 2 минуты
+## Нужна помощь
 
-```bash
-# На роутере через SSH:
-opkg update
-opkg upgrade
-wget -qO- http://repo.hoaxisr.ru/install.sh | sh
-```
-
-Установщик определит архитектуру, добавит репозиторий, установит пакет и выведет URL веб-интерфейса.
-
-[Подробная инструкция →](install)
-
-<div class="hx-mt-16"></div>
-
-## Справка
-
-{{< cards >}}
-  {{< card link="quickstart/" title="Быстрый старт" icon="play" subtitle="Первый туннель за 5 минут: импорт конфига, запуск, проверка." >}}
-  {{< card link="faq/" title="Частые вопросы" icon="question-mark-circle" subtitle="Короткие ответы: обфускация, лимиты туннелей, порты, ключи." >}}
-  {{< card link="troubleshooting/" title="Решение проблем" icon="support" subtitle="Типичные сбои и их разбор: туннель не поднимается, правила не срабатывают." >}}
-  {{< card link="api/" title="API" icon="code" subtitle="HTTP REST API для автоматизации — на том же порту, что веб-интерфейс." >}}
+{{< cards cols="3" >}}
+  {{< card link="faq/" title="Вопросы и решения" icon="question-mark-circle" subtitle="Частые вопросы и типичные проблемы." >}}
+  {{< card link="guide/diagnostics/checks/" title="Проверки" icon="clipboard-check" subtitle="Автоматическая диагностика роутера и туннелей." >}}
+  {{< card link="https://t.me/awgmanager" title="Чат в Telegram" icon="telegram" subtitle="Спросить, если ничего не помогло." >}}
 {{< /cards >}}
 
 <div class="hx-mt-16"></div>
 
-## Поддерживаемые устройства
-
-Поддерживаются роутеры Keenetic с возможностью установки Entware из актуальной линейки, включая "кинетикозаменители".
-
-<div class="hx-mt-16"></div>
-
-## Проект
-
-- **Исходный код:** [github.com/hoaxisr/awg-manager](https://github.com/hoaxisr/awg-manager)
-- **Репозиторий пакетов opkg:** [repo.hoaxisr.ru](http://repo.hoaxisr.ru)
-- **Changelog:** [релизы на GitHub](https://github.com/hoaxisr/awg-manager/releases)
-- **Баги / Запросы новых функций:** [GitHub Issues](https://github.com/hoaxisr/awg-manager/issues)
-- **TG Канал Общения** [Telegram](https://t.me/awgmanager)
+[Исходный код](https://github.com/hoaxisr/awg-manager) · [Репозиторий opkg](http://repo.hoaxisr.ru) · [Changelog](https://github.com/hoaxisr/awg-manager/releases) · [Баги и предложения](https://github.com/hoaxisr/awg-manager/issues) · Роутеры Keenetic с Entware, включая «кинетикозаменители»
