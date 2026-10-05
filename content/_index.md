@@ -41,7 +41,7 @@ toc: false
 {{< cards cols="3" >}}
   {{< card link="guide/tunnels/" title="AmneziaWG и WireGuard" icon="switch-horizontal" subtitle="Импорт .conf и vpn:// ссылок, AWG 1.0–3.1, PhobosWG, ClusterM Obfuscator." >}}
   {{< card link="guide/singbox/" title="Sing-box" icon="cube" subtitle="VLESS, Hysteria2, NaiveProxy, Mieru и подписки провайдеров." >}}
-  {{< card link="guide/freeturn/" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для живущих далеко: возможность позвонить из Голландии в село Светлая дача" >}}
+  {{< card link="guide/freeturn/" title="Прокси" icon="lightning-bolt" subtitle="Туннель для живущих далеко: возможность позвонить по туннелю" >}}
   {{< card link="guide/routing/" title="Маршрутизация" icon="map" subtitle="По доменам, IP и устройствам: шесть механизмов и как выбрать нужный." >}}
   {{< card link="guide/clientvpn/" title="VPN для устройств" icon="device-mobile" subtitle="Отдельное устройство сети целиком через выбранный туннель." >}}
   {{< card link="guide/servers/" title="Серверы" icon="server" subtitle="Свой WireGuard/AmneziaWG-сервер на роутере, клиенты по QR." >}}

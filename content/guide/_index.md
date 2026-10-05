@@ -13,7 +13,7 @@ cascade:
   {{< card link="tunnels" title="Управление туннелями" icon="switch-horizontal" subtitle="Создание, редактирование, параметры обфускации, маршрут по умолчанию." >}}
   {{< card link="monitoring" title="Мониторинг" icon="chart-bar" subtitle="Карточки-watchdog и автоматический перезапуск при потере соединения." >}}
   {{< card link="servers" title="Серверы" icon="server" subtitle="Свой WireGuard/AmneziaWG-сервер на роутере: создание, NAT и доступ, клиенты, обфускация, бэкап." >}}
-  {{< card link="freeturn" title="FreeTurn" icon="lightning-bolt" subtitle="TURN-туннель для обхода блокировок: клиент, сервер, ссылки freeturn://." >}}
+  {{< card link="freeturn" title="Прокси" icon="lightning-bolt" subtitle="Прокси-туннель для живущих далеко: возможность позвонить по туннелю." >}}
 {{< /cards >}}
 
 ## Маршрутизация
