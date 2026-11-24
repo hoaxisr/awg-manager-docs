@@ -12,7 +12,7 @@ weight: 6
 | Основы | [Общие сведения](#общие-сведения) · [Аутентификация](#аутентификация) · [Health и boot](#health-и-boot) · [Система](#система) · [Настройки приложения](#настройки-приложения) · [Обновления](#обновления) |
 | Туннели | [Туннели (управляемые)](#туннели-управляемые) · [Start/Stop](#управление-туннелями-startstop) · [Статус](#статус-туннелей) · [Ping-check](#pingcheck-мониторинг) · [Внешние](#внешние-туннели-неуправляемые) · [Системные](#системные-туннели-нативные-keenetic) · [Тестирование](#тестирование-туннелей) |
 | Серверы | [VPN-серверы](#vpnсерверы-wireguard-server-interfaces) · [Управляемый WireGuard-сервер](#управляемый-wireguardсервер) |
-| Маршрутизация | [Политики доступа](#политики-доступа-access-policies--только-os5) · [DNS-маршруты](#dnsмаршруты) · [Статические маршруты](#статические-маршруты) · [Клиентские маршруты](#клиентские-маршруты) · [HydraRoute Neo](#hydraroute-neo) |
+| Маршрутизация | [Политики доступа](#политики-доступа-access-policies--только-os5) · [DNS-маршруты](#dnsмаршруты) · [Статические маршруты](#статические-маршруты) · [Клиентские маршруты](#клиентские-маршруты) · [Гео-файлы](#геофайлы) |
 | Sing-box | [Sing-box](#singbox) · [Device Proxy](#device-proxy-socks5http) |
 | Диагностика | [WAN статус](#wan-статус) · [Соединения](#соединения-conntrack) · [Диагностика](#диагностика) · [Логи](#логи-приложения) · [NDMS save-status](#ndms-savestatus) |
 | Прочее | [Захват сигнатуры](#захват-сигнатуры) · [Терминал (ttyd)](#терминал-ttyd) · [SSE](#serversent-events-sse) |
@@ -111,8 +111,6 @@ weight: 6
 | POST | `/system/restart` | Перезапуск демона awg‑manager (с задержкой) | да |
 | GET | `/system/wan-interfaces` | Список WAN‑интерфейсов (ядро) | да |
 | GET | `/system/all-interfaces` | Все сетевые интерфейсы роутера (через NDMS) | да |
-| GET | `/system/hydraroute-status` | Статус установки HydraRoute Neo | да |
-| POST | `/system/hydraroute-control` | Управление HydraRoute (start/stop/restart) | да |
 | GET | `/system/backup/export` | Скачать резервную копию каталога данных (`tar.gz`) | да |
 | POST | `/system/backup/import` | Восстановить каталог данных из архива (multipart) | да |
 
@@ -206,10 +204,6 @@ chmod +x /opt/bin/awg_backup.sh
 
 ### GET `/system/all-interfaces`
 Массив интерфейсов с полями `name`, `label`, `type` и т.д. (зависит от NDMS).
-
-### POST `/system/hydraroute-control`
-**Тело:** `{ "action": "start" | "stop" | "restart" }`  
-**Ответ:** статус после выполнения (как в `GET /system/hydraroute-status`).
 
 ## Настройки приложения
 
@@ -564,7 +558,6 @@ chmod +x /opt/bin/awg_backup.sh
 | POST | `/dns-routes/delete-batch` | Удалить несколько списков по ID | да |
 | POST | `/dns-routes/create-batch` | Создать несколько списков | да |
 | POST | `/dns-routes/set-enabled?id=` | Включить/отключить список | да |
-| POST | `/dns-routes/bulk-backend` | Сменить бэкенд для нескольких списков | да |
 | POST | `/dns-routes/refresh` | Обновить подписки (все или по ID) | да |
 
 **Структура DNS‑маршрута:**
@@ -574,7 +567,7 @@ chmod +x /opt/bin/awg_backup.sh
   "name": "My Domains",
   "domains": ["example.com", "domain.org"],
   "enabled": true,
-  "backend": "ndms",       // ndms, hydraroute или static
+  "backend": "ndms",
   "subscriptionURL": "",
   "lastUpdate": ""
 }
@@ -587,11 +580,6 @@ chmod +x /opt/bin/awg_backup.sh
   "domains": ["example.com"],
   "backend": "ndms"
 }
-```
-
-**Bulk backend:**
-```json
-{ "listIDs": ["id1","id2"], "backend": "hydraroute" }
 ```
 
 ## Статические маршруты
@@ -757,20 +745,16 @@ chmod +x /opt/bin/awg_backup.sh
 { "connected": true, "latency": 42, "reason": "" }
 ```
 
-## HydraRoute Neo
+## Гео‑файлы
 
 | Метод | Путь | Описание | Аутентификация |
 |-------|------|----------|----------------|
-| GET | `/hydraroute/config` | Получить текущую конфигурацию (JSON) | да |
-| PUT | `/hydraroute/config/update` | Записать конфигурацию (полный объект) | да |
-| GET | `/hydraroute/geo-files` | Список загруженных geo‑файлов | да |
-| POST | `/hydraroute/geo-files/add` | Скачать и зарегистрировать geo‑файл (body: {url, path}) | да |
-| DELETE | `/hydraroute/geo-files?path=` | Удалить geo‑файл | да |
-| POST | `/hydraroute/geo-files/update` | Принудительно обновить geo‑файл(ы) | да |
-| GET | `/hydraroute/geo-tags` | Получить полный список тегов всех geo‑файлов | да |
-| GET | `/hydraroute/ipset-usage` | Статистика использования ipset | да |
-| POST | `/hydraroute/policy-order` | Установить порядок политик | да |
-| GET | `/hydraroute/oversized-tags` | Теги, превышающие лимит ipset | да |
+| GET | `/geo/files` | Список гео‑файлов | да |
+| POST | `/geo/files/add` | Скачать и добавить файл (body: {type, url}) | да |
+| DELETE | `/geo/files/delete?path=` | Удалить файл; файл другой программы остаётся на диске | да |
+| POST | `/geo/files/update` | Обновить файл (body: {path}) или все (пустой path) | да |
+| GET | `/geo/tags?path=` | Теги файла | да |
+| GET | `/geo/expand?kind=&tag=` | Развернуть тег (kind: geosite или geoip) в записи | да |
 
 ## Sing‑box
 
@@ -933,7 +917,7 @@ data: {"id":"my-tunnel","state":"running","backend":"kernel"}
 
 ## Основные коды ошибок
 
-`METHOD_NOT_ALLOWED`, `UNAUTHORIZED`, `BAD_REQUEST`, `NOT_FOUND`, `INVALID_JSON`, `MISSING_NAME`, `MISSING_ID`, `MISSING_MAC`, `INVALID_NAME`, `INVALID_ID`, `INVALID_ENDPOINT`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETE_FAILED`, `LIST_FAILED`, `AUTH_FAILED`, `ROUTER_UNAVAILABLE`, `INTERNAL_ERROR`, `CONFLICT`, `SERVICE_UNAVAILABLE`, `NO_STREAMING`, `PINGCHECK_CONFIGURE_ERROR`, `PINGCHECK_REMOVE_ERROR`, `HYDRAROUTE_CONTROL_ERROR`, `GET_ASC_FAILED`, `SET_ASC_FAILED`, `STATIC_ROUTE_IMPORT_ERROR`, `NOT_RUNNING`, `SESSION_ACTIVE`
+`METHOD_NOT_ALLOWED`, `UNAUTHORIZED`, `BAD_REQUEST`, `NOT_FOUND`, `INVALID_JSON`, `MISSING_NAME`, `MISSING_ID`, `MISSING_MAC`, `INVALID_NAME`, `INVALID_ID`, `INVALID_ENDPOINT`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETE_FAILED`, `LIST_FAILED`, `AUTH_FAILED`, `ROUTER_UNAVAILABLE`, `INTERNAL_ERROR`, `CONFLICT`, `SERVICE_UNAVAILABLE`, `NO_STREAMING`, `PINGCHECK_CONFIGURE_ERROR`, `PINGCHECK_REMOVE_ERROR`, `GET_ASC_FAILED`, `SET_ASC_FAILED`, `STATIC_ROUTE_IMPORT_ERROR`, `NOT_RUNNING`, `SESSION_ACTIVE`
 
 ---
 

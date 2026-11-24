@@ -23,7 +23,7 @@ cascade:
   {{< card link="routing/autolist" title="Autolist" icon="sparkles" subtitle="Список заблокированных целей по реальному трафику: ручное и автоматическое добавление в Sing-box." >}}
   {{< card link="dns-routing" title="DNS-маршрутизация (NDMS)" icon="globe-alt" subtitle="Правила по FQDN, пресеты популярных сервисов." >}}
   {{< card link="ip-routing" title="Маршрутизация по IP" icon="hashtag" subtitle="Правила по IP и CIDR, Kill Switch, импорт из .bat." >}}
-  {{< card link="hr-neo" title="HydraRoute Neo" icon="sparkles" subtitle="Альтернативный движок: geosite/geoip-теги, готовые списки." >}}
+  {{< card link="geodata" title="Гео-данные" icon="database" subtitle="Файлы geosite и geoip для правил Sing-box: загрузка и автообновление." >}}
   {{< card link="clientvpn" title="VPN для устройств" icon="device-mobile" subtitle="Привязка конкретных устройств локальной сети к туннелю." >}}
   {{< card link="policy" title="Политики доступа" icon="user-group" subtitle="Политики на уровне интерфейсов с fallback (OS 5.x)." >}}
 {{< /cards >}}
