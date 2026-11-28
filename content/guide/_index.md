@@ -20,6 +20,7 @@ cascade:
 
 {{< cards >}}
   {{< card link="routing" title="Как выбрать маршрутизацию" icon="map" subtitle="Сравнение механизмов и типовые сценарии выбора." >}}
+  {{< card link="awgm-route" title="AWGM Route" icon="map" subtitle="Основной способ выборочной маршрутизации: настройка с нуля, группы, туннели, ограничения." >}}
   {{< card link="routing/autolist" title="Autolist" icon="sparkles" subtitle="Список заблокированных целей по реальному трафику: ручное и автоматическое добавление в Sing-box." >}}
   {{< card link="dns-routing" title="DNS-маршрутизация (NDMS)" icon="globe-alt" subtitle="Правила по FQDN, пресеты популярных сервисов." >}}
   {{< card link="ip-routing" title="Маршрутизация по IP" icon="hashtag" subtitle="Правила по IP и CIDR, Kill Switch, импорт из .bat." >}}
